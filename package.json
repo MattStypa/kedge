@@ -1,5 +1,5 @@
 {
-  "name": "Kedge",
+  "name": "kedge",
   "version": "0.9.0",
   "description": "Easy to use global state hook for React.",
   "license": "MIT",
