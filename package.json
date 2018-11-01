@@ -1,0 +1,41 @@
+{
+  "name": "Kedge",
+  "version": "0.9.0",
+  "description": "Easy to use global state hook for React.",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "author": {
+    "name": "Matt Stypa",
+    "email": "matt@mattstypa.com",
+    "url": "http://mattstypa.com"
+  },
+  "keywords": [
+    "react",
+    "store",
+    "hook"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MattStypa/kedge"
+  },
+  "scripts": {
+    "build": "webpack",
+    "test": "jest"
+  },
+  "peerDependencies": {
+    "react": ">=16.7.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "jest": "^23.6.0",
+    "react": "^16.7.0-alpha.0",
+    "react-test-renderer": "^16.7.0-alpha.0",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0"
+  }
+}
