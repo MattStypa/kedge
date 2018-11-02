@@ -1,5 +1,10 @@
 # Kedge
 
+[![Build Status](https://travis-ci.org/MattStypa/kedge.svg?branch=master)](https://travis-ci.org/MattStypa/kedge)
+[![Latest Stable Version](https://img.shields.io/npm/v/kedge.svg)](https://www.npmjs.com/package/kedge)
+[![Total Downloads](https://img.shields.io/npm/dt/kedge.svg)](https://www.npmjs.com/package/kedge)
+[![License](https://img.shields.io/npm/l/kedge.svg)](https://www.npmjs.com/package/kedge)
+
 Easy to use global state hook for React.
 
 ## Note
