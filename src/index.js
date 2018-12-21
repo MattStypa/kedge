@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 
 export function createStore(initialState) {
   return new Store(initialState);
@@ -33,7 +33,7 @@ function Store(initialState) {
 
   this.use = () => {
     const [state, dispatcher] = useState(currentState);
-    useEffect(() => subscribe(dispatcher), []);
+    useLayoutEffect(() => subscribe(dispatcher), []);
 
     return state;
   }
