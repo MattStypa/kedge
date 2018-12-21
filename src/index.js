@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export function createStore(initial) {
-  return new Store(initial);
+export function createStore(initialState) {
+  return new Store(initialState);
 }
 
 export function useStore(store) {
@@ -12,18 +12,28 @@ export function setStore(store, newState) {
   store.set(newState);
 }
 
-function Store(initial) {
-  let current = initial;
+function Store(initialState) {
+  let currentState = initialState;
   let dispatchers = [];
 
+  const subscribe = (dispatcher) => {
+    const count = dispatchers.push(dispatcher);
+
+    return () => unsubscribe(count - 1);
+  };
+
+  const unsubscribe = (index) => {
+    dispatchers[index] = null;
+  };
+
   this.set = (newState) => {
-    current = newState;
-    dispatchers.forEach(dispatch => dispatch(newState));
+    currentState = newState;
+    dispatchers.forEach(dispatch => dispatch && dispatch(newState));
   }
 
   this.use = () => {
-    const [state, dispatch] = useState(current);
-    dispatchers.push(dispatch);
+    const [state, dispatcher] = useState(currentState);
+    useEffect(() => subscribe(dispatcher), []);
 
     return state;
   }

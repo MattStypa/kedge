@@ -1,6 +1,6 @@
 {
   "name": "kedge",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Easy to use global state hook for React.",
   "license": "MIT",
   "main": "dist/index.js",
@@ -22,9 +22,6 @@
     "build": "webpack",
     "test": "jest"
   },
-  "peerDependencies": {
-    "react": ">=16.7.0"
-  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
@@ -33,8 +30,8 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "jest": "^23.6.0",
-    "react": "^16.7.0-alpha.0",
-    "react-test-renderer": "^16.7.0-alpha.0",
+    "react": "16.7.0-alpha.2",
+    "react-test-renderer": "16.7.0-alpha.2",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0"
   }
