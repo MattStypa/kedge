@@ -7,10 +7,6 @@
 
 Easy to use global state hook for React.
 
-## Note
-
-Kedge uses React hooks that are available in React version 16.7.0. At this moment that version is only available as an alpha release.
-
 ## Installation
 
 ```
