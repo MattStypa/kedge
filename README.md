@@ -9,6 +9,8 @@ Easy to use global state hook for React.
 
 ![Kedge](https://raw.githubusercontent.com/MattStypa/assets/master/kedge/kedge.png)
 
+[Read a little bit more here.](https://medium.com/@mattstypa/global-react-hook-usestate-86e6dd78a635)
+
 ## Installation
 
 ```
