@@ -7,6 +7,8 @@
 
 Easy to use global state hook for React.
 
+![Kedge](https://raw.githubusercontent.com/MattStypa/assets/master/kedge/kedge.png)
+
 ## Installation
 
 ```
