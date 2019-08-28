@@ -47,6 +47,17 @@ describe('kedge', () => {
     expect(container.querySelector('div').textContent).toBe('xyz');
   });
 
+  it('resets values', () => {
+    const store = createStore('abc');
+    const Component = getTestComponent(store);
+
+    act(() => { render(<Component/>, container) });
+    act(() => { store.set('xyz') });
+    act(() => { store.reset() });
+
+    expect(container.querySelector('div').textContent).toBe('abc');
+  });
+
   it('does not waste render cycles', () => {
     const store = createStore('abc');
     const Component = getTestComponent(store);

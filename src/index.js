@@ -8,10 +8,6 @@ export function useStore(store) {
   return store.use();
 }
 
-export function setStore(store, newState) {
-  store.set(newState);
-}
-
 function Store(initialState) {
   let currentState = initialState;
   let dispatchers = [];
@@ -29,12 +25,14 @@ function Store(initialState) {
   this.set = (newState) => {
     currentState = newState;
     dispatchers.forEach(dispatch => dispatch && dispatch(newState));
-  }
+  };
 
   this.use = () => {
     const [state, dispatcher] = useState(currentState);
     useLayoutEffect(() => subscribe(dispatcher), []);
 
     return state;
-  }
+  };
+
+  this.reset = () => this.set(initialState);
 }

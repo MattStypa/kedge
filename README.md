@@ -41,14 +41,14 @@ function fetchPrice() {
 ```
 
 ## API
-  #### `const store = createStore(initialState)`
+  - #### `const store = createStore(initialState)`
   Creates a `Store` with initial value.
 
-  #### `const state = useStore(store)`
+  - #### `const state = useStore(store)`
   Returns current state from the `Store` and subscribes the component to it. If the `Store` changes state the component will re-render.
 
-  #### `setStore(store, newState)`
-  Alias of `store.set(newState)`
-
-  #### `Store.set(newState)`
+  - #### `Store.set(newState)`
   Sets `Store` state and re-renders all components that use it.
+
+  - #### `Store.reset()`
+  Sets `Store` to initial value and re-renders all components that use it.
