@@ -1,37 +1,31 @@
-import { useLayoutEffect, useState } from 'react';
+import React, { useState, useLayoutEffect, useDebugValue } from 'react';
 
-export function createStore(initialState) {
-  return new Store(initialState);
+export function createStore(initialState, name) {
+  return new Store(initialState, name);
 }
 
 export function useStore(store) {
-  return store.use();
+  const [state, dispatcher] = useState(store.currentState);
+  useLayoutEffect(() => store.subscribe(dispatcher), []);
+  useDebugValue(store.name);
+
+  return state;
 }
 
-function Store(initialState) {
-  let currentState = initialState;
+function Store(initialState, name) {
   let dispatchers = [];
+  this.name = name;
+  this.currentState = initialState;
 
-  const subscribe = (dispatcher) => {
-    const count = dispatchers.push(dispatcher);
+  this.subscribe = (dispatcher) => {
+    const index = dispatchers.push(dispatcher);
 
-    return () => unsubscribe(count - 1);
-  };
-
-  const unsubscribe = (index) => {
-    dispatchers[index] = null;
+    return () => dispatchers[index - 1] = null;
   };
 
   this.set = (newState) => {
-    currentState = newState;
+    this.currentState = newState;
     dispatchers.forEach(dispatch => dispatch && dispatch(newState));
-  };
-
-  this.use = () => {
-    const [state, dispatcher] = useState(currentState);
-    useLayoutEffect(() => subscribe(dispatcher), []);
-
-    return state;
   };
 
   this.reset = () => this.set(initialState);

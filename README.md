@@ -41,8 +41,8 @@ function fetchPrice() {
 ```
 
 ## API
-  - #### `const store = createStore(initialState)`
-  Creates a `Store` with initial value.
+  - #### `const store = createStore(initialState, optionalName)`
+  Creates a `Store` with initial value. Optionally, it accepts a store name that is used in React Dev Tools
 
   - #### `const state = useStore(store)`
   Returns current state from the `Store` and subscribes the component to it. If the `Store` changes state the component will re-render.
