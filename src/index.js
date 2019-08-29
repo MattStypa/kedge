@@ -5,7 +5,7 @@ export function createStore(initialState, name) {
 }
 
 export function useStore(store) {
-  const [state, dispatcher] = useState(store.currentState);
+  const [state, dispatcher] = useState(store.state);
   useLayoutEffect(() => store.subscribe(dispatcher), []);
   useDebugValue(store.name);
 
@@ -15,7 +15,7 @@ export function useStore(store) {
 function Store(initialState, name) {
   let dispatchers = [];
   this.name = name;
-  this.currentState = initialState;
+  this.state = initialState;
 
   this.subscribe = (dispatcher) => {
     const index = dispatchers.push(dispatcher);
@@ -24,7 +24,7 @@ function Store(initialState, name) {
   };
 
   this.set = (newState) => {
-    this.currentState = newState;
+    this.state = newState;
     dispatchers.forEach(dispatch => dispatch && dispatch(newState));
   };
 
